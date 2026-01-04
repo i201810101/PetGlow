@@ -1,0 +1,26 @@
+# Framework Web
+Flask==3.0.3
+Flask-Login==0.6.3
+Flask-WTF==1.2.1
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.5
+
+# Base de Datos - VERSIONES COMPATIBLES CON PYTHON 3.13
+mysql-connector-python==9.5.0
+SQLAlchemy==2.0.40  # Versión más reciente que arregla el bug
+
+# O alternativamente, usar SQLAlchemy 1.4 que es más estable
+# SQLAlchemy==1.4.52
+
+# Utilidades
+python-dotenv==1.2.1
+cryptography==46.0.3
+pyyaml==6.0.3
+pandas==2.3.3
+python-dateutil==2.9.0
+tabulate==0.9.0
+colorama==0.4.6
+
+# Para formularios y seguridad
+WTForms==3.1.2
+email-validator==2.2.0

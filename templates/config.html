@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Configuración - PetGlow{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Configuración del Sistema</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Base de Datos</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Estado:</strong> 
+                    {% if 'user_name' in session and 'Demo' in session['user_name'] %}
+                    <span class="badge bg-warning">MODO DEMO</span>
+                    {% else %}
+                    <span class="badge bg-success">CONECTADO</span>
+                    {% endif %}
+                </p>
+                <p><strong>Base de datos:</strong> {{ config.DB_NAME if config else 'petglowbd' }}</p>
+                <p><strong>Host:</strong> {{ config.DB_HOST if config else 'localhost' }}</p>
+                <button class="btn btn-outline-primary btn-sm">Probar conexión</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Sistema</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Versión:</strong> 1.0.0</p>
+                <p><strong>Desarrollador:</strong> Adrian</p>
+                <p><strong>Tipo:</strong> Sistema de Groomers</p>
+                <a href="#" class="btn btn-outline-primary btn-sm">Ver documentación</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Información de Usuario</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Usuario actual:</strong> {{ current_user.nombre }}</p>
+                <p><strong>Rol:</strong> {{ current_user.rol }}</p>
+                <p><strong>Username:</strong> {{ current_user.username }}</p>
+            </div>
+            <div class="col-md-6">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-warning">Cambiar contraseña</button>
+                    <button class="btn btn-outline-secondary">Editar perfil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
